@@ -16,8 +16,16 @@
     </script>
 {{- end}}
 
+<!-- Global JS -->
 {{ range $val := $.Site.Params.customJS }}
 	{{ if gt (len $val) 0 }}
 		<script src="{{ $val }}"></script>
 	{{ end }}
+{{ end }}
+
+<!-- Local JS -->
+{{ range $val := $.Params.customJS }}
+    {{ if gt (len $val) 0 }}
+        <script src="{{ $val }}"></script>
+    {{ end }}
 {{ end }}
